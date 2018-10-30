@@ -1,6 +1,5 @@
 #!/bin/bash
 
 echo "hello ITC-136"
-q
-:q
 
+echo "Edited to github"
