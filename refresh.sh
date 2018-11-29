@@ -1,8 +1,9 @@
 #!/bin/bash
 
 git_init(){	
+        read -p "enter t5he link of repository: " remote_link
 	git init
-	git remote add origin https://github.com/zjwda2016/test.git
+	git remote add origin "$remote_link"
 	git pull origin master
 }
 
