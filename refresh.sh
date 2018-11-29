@@ -1,12 +1,16 @@
 #!/bin/bash
 
 git_init(){	
-        read -p "enter t5he link of repository: " remote_link
+	read -p "Enter the link of repository: "  remote_link
 	git init
 	git remote add origin "$remote_link"
 	git pull origin master
 }
 
+show_repository(){
+	remote_link=$(git remote show origin | awk '{print $3}' | sed -n '3p')
+	echo "$remote_link"
+}
 git_pull(){
 	git pull origin master
 }
@@ -111,22 +115,22 @@ main(){
 
 	if [[ $git_status_results =~ 'On branch master' ]]; then
 
-		echo "There is a git repository"
-		
+		echo -n "There is a git repository: "
+		show_repository
 
-            git_remote_status_results=$(git remote show origin)
+        git_remote_status_results=$(git remote show origin)
         
-            if [[ $git_remote_status_results =~ 'up to date' ]]; then
+        if [[ $git_remote_status_results =~ 'up to date' ]]; then
         	
         	echo "Local repo is Up To Date."
-            else
+        else
         	
         	echo "Local repo is  Out of Date"
         	do_fetch_pull_options
-            fi
+        fi
 	else
-            echo "You need to create a git repository first, we will do it for you."
-            git_init
+        echo "There don't have a git repository, You need to create a git repository first, we will do it for you."
+        git_init
 	fi
 }
 
