@@ -1,10 +1,14 @@
 #!/bin/bash
 
 git_init(){	
-        read -p "enter t5he link of repository: " remote_link
+        read -p "enter the link of repository: " remote_link
 	git init
 	git remote add origin "$remote_link"
 	git pull origin master
+}
+show_repository(){
+	remote_link=$(git remote show origin | awk '{print $3}' | sed -n '3p')
+	echo "$remote_link"
 }
 
 git_pull(){
@@ -111,8 +115,8 @@ main(){
 
 	if [[ $git_status_results =~ 'On branch master' ]]; then
 
-		echo "There is a git repository"
-		
+		echo -n "There is a git repository"
+		show_repository
 
             git_remote_status_results=$(git remote show origin)
         
