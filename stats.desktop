@@ -1,0 +1,17 @@
+[Desktop Entry]
+
+Version=0.1
+
+Name=Stats
+
+Comment=generated program
+
+Exec=/usr/bin/gnome-terminal -e "bash -c '/usr/local/bin/stats; bash'"
+
+Icon=/home/joanna/Desktop/orchid.jpg
+
+Terminal=false
+
+Type=Application
+
+Categories=Utility;Application;
