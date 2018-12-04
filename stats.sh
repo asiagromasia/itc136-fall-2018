@@ -11,3 +11,20 @@ connections=$( netstat | grep tcp )
 
 #who is logged in(who)
 users=$( who | awk ‘{print $1}’ )
+echo -en "this is a snap shot of your current system:
+
+ /e34  Disk used: ${diskused}
+
+  free memory: $memfree
+
+  logged in users: $users
+
+  Open internet connections: $connections
+
+"
+
+
+
+color info: 
+
+https://misc.flogisoft.com/bash/tip_colors_and_formatting 
