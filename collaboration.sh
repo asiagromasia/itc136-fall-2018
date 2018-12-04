@@ -4,3 +4,4 @@
 echo "Hello Peter, Jeremiah, and Junqiao!"
 echo "Hi Joanna! It's Jeremiah."
 echo "Hi Joanna! It's Junqiao."
+echo "« Un pour tous, tous pour un! »"
